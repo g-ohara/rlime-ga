@@ -1,0 +1,58 @@
+\ProvidesPackage{beamerthemeSimplePoster}
+\mode<presentation>
+\DeclareOptionBeamer{footertext}{\def\SimplePoster@footertext{#1}}
+\ProcessOptionsBeamer{}
+\selectcolormodel{RGB}
+\definecolor{hokudai}{RGB}{25, 125, 54}
+\definecolor{background}{RGB}{230,255,230}
+\setbeamercolor{background canvas}{bg=background}
+\setbeamercolor{headline}{fg=white,bg=hokudai}
+\setbeamercolor{footline}{fg=white,bg=hokudai}
+\setbeamercolor*{normal text}{fg=black,bg=white}
+\setbeamercolor*{block body}{fg=black,bg=white}
+\setbeamercolor*{block title}{fg=white,bg=hokudai}
+\setbeamerfont{block title}{size=\Huge,series=\bf}
+\setbeamerfont{block body}{size=\Large}
+\setbeamercolor{structure}{fg=hokudai}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{block begin}{%
+	\begin{beamercolorbox}[
+			rounded=true,
+			shadow=true,
+			leftskip=1em,
+			colsep*=0.9ex]{block title}%
+		\usebeamerfont*{block title}\Large\insertblocktitle{}
+	\end{beamercolorbox}%
+	\usebeamerfont{block body}%
+	\begin{beamercolorbox}[
+			rounded=true,
+			shadow=true,
+			leftskip=1em,
+			rightskip=1em,
+			colsep*=.75ex,
+			sep=1ex,
+			vmode]{block body}%
+		}
+		\setbeamertemplate{block end}{%
+	\end{beamercolorbox}
+	\vskip1.0ex
+}
+\usepackage{graphbox}
+\setbeamertemplate{headline}{%
+	\leavevmode
+	\begin{beamercolorbox}[wd=\paperwidth,colsep=5ex]{headline}
+		\centering
+		\textbf{\LARGE{\inserttitle}}
+	\end{beamercolorbox}%
+	\vspace{-1.7em}
+}
+\setbeamertemplate{footline}{%
+	\begin{beamercolorbox}[wd=\paperwidth,ht=11ex]{footline}
+		\leavevmode%
+		\usebeamercolor{conference in headline}{%
+			\hfill\color{fg}\large{\SimplePoster@footertext}\hspace{1em}
+		}
+		\vskip3ex
+	\end{beamercolorbox}
+}
+\usefonttheme[onlymath]{serif}
